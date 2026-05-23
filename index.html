@@ -109,9 +109,8 @@
 
     <label id="l-vehicle">🚗 Tipo de Vehículo</label>
     <div class="services">
-        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort, 4 Pass-Pers<b>$2.00/mi+0.31*min</b></div>
-
-    </div>
+        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort X, 4 Pass-Pers<b>$2.00/mi+0.31*min</b></div>
+     </div>
 
     <button class="btn-calc" id="b-calc" onclick="estimate()">Calcular mi Tarifa</button>
 
@@ -167,25 +166,13 @@ const texts = {
 // --- FUNCIONES CORE ---
 
 async function toggleStatus() {
- // 1. Pedimos el PIN
-    const pinIngresado = prompt("Ingrese su PIN de Driver:");
-
-    // 2. Verificamos si es el correcto
-    if (pinIngresado === "1801") {
-        const newState = !isOnline;
-        try {
-            await fetch(dbURL, {
-                method: 'PUT',
-                body: JSON.stringify({ online: newState })
-            });
-            // El color cambiará automáticamente gracias a la función checkStatus que ya tienes
-        } catch (e) { 
-            console.error("Error sincronizando", e); 
-        }
-    } else {
-        // Si el PIN está mal o cancela, no hace nada
-        alert("PIN Incorrecto");
-    }  
+    const newState = !isOnline;
+    try {
+        await fetch(dbURL, {
+            method: 'PUT',
+            body: JSON.stringify({ online: newState })
+        });
+    } catch (e) { console.error("Error sincronizando", e); }
 }
 
 async function checkStatus() {
@@ -356,8 +343,7 @@ function updateDisplay() {
             msg += "Link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
 
         } else {
-            msg += "\nEstoy en servicio. pero puede hacer su futura reserva y le confirmaremos tan pronto sea posible.\n";
-            msg += "Link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
+            msg += "\nEstoy en servicio. pero puede hacer su futura reserva y le confirmaremos tan pronto sea posible, aqui le dejamos el link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
         }
     } else {
         // MENSAJE EN INGLÉS
@@ -368,9 +354,7 @@ function updateDisplay() {
             msg += "Link for quick access... https://chopelmont.github.io/orlandorides/\n";
 
         } else {
-            msg += "\nI am currently on a fare, but you can make your future reservation and we will confirm Asap. \n";
-            msg += "Link for quick access... https://chopelmont.github.io/orlandorides/\n";
-            
+            msg += "\nI am currently on a fare, but you can make your future reservation and we will confirm Asap. Here is our link for quick access... https://chopelmont.github.io/orlandorides/\n";
         }
      }
 
