@@ -109,8 +109,8 @@
 
     <label id="l-vehicle">🚗 Tipo de Vehículo</label>
     <div class="services">
-        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort X, 4 Pass-Pers<b>$1.50/mi+0.31*min</b></div>
-        <div class="srv-card" onclick="sel(2.0, 'SUV XL', this)">SUV Comfort XL, 6 Pass-pers<b>$2.00/mi+0.31*min</b></div>
+        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort, 4 Pass-Pers<b>$2.00/mi+0.31*min</b></div>
+  //      <div class="srv-card" onclick="sel(2.0, 'SUV XL', this)">SUV Comfort XL, 6 Pass-pers<b>$2.00/mi+0.31*min</b></div>
     </div>
 
     <button class="btn-calc" id="b-calc" onclick="estimate()">Calcular mi Tarifa</button>
@@ -353,10 +353,13 @@ function updateDisplay() {
          if (isOnline) {
             msg += "\n\nGracias por contactarnos, ¿Me da unos mins y le confirmo?\n";
             msg += "Por favor tenga en cuenta que las tarifas son un estimado que puede variar (disminuir o aumentar) por trafico y tiempo para llegar al destino\n\n";
+     </div>
             msg += "Link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
 
         } else {
-            msg += "\nEstoy en servicio. pero puede hacer su futura reserva y le confirmaremos tan pronto sea posible, aqui le dejamos el link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
+            msg += "\nEstoy en servicio. pero puede hacer su futura reserva y le confirmaremos tan pronto sea posible.\n";
+             </div>
+            msg += "Link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
         }
     } else {
         // MENSAJE EN INGLÉS
@@ -364,10 +367,14 @@ function updateDisplay() {
         if (isOnline) {
             msg += "\n\nThank you for contacting us, Can you give me a few mins to confirm?\n";
             msg += "Please note that fares are an estimate that may vary (decrease or increase) due to traffic and travel time to the destination\n\n";
+             </div>
             msg += "Link for quick access... https://chopelmont.github.io/orlandorides/\n";
 
         } else {
-            msg += "\nI am currently on a fare, but you can make your future reservation and we will confirm Asap. Here is our link for quick access... https://chopelmont.github.io/orlandorides/\n";
+            msg += "\nI am currently on a fare, but you can make your future reservation and we will confirm Asap. \n";
+             </div>
+            msg += "Link for quick access... https://chopelmont.github.io/orlandorides/\n";
+            
         }
      }
 
