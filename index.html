@@ -109,7 +109,7 @@
 
     <label id="l-vehicle">🚗 Tipo de Vehículo</label>
     <div class="services">
-        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort X, 4 Pass-Pers<b>$2.00/mi+0.31*min</b></div>
+        <div class="srv-card" onclick="sel(1.5, 'SUV Comfort', this)">SUV Comfort, 4 Pass-Pers<b>$2.00/mi+0.31*min</b></div>
      </div>
 
     <button class="btn-calc" id="b-calc" onclick="estimate()">Calcular mi Tarifa</button>
@@ -316,9 +316,9 @@ function estimate() {
 
 function updateDisplay() {
     let total = ( (fixedDist * rate) + (timeCharge || 0) ).toFixed(2);
- if (srv === 'SUV Comfort' && parseFloat(total) < 15) {
+ if (srv === 'SUV Comfort' && parseFloat(total) <= 10) {
     total = "15.00";
-} else if (srv === 'SUV XL' && parseFloat(total) < 20) {
+} else if (srv === 'SUV XL' && parseFloat(total) <= 20) {
     total = "20.00";
 }
  
@@ -343,7 +343,7 @@ function updateDisplay() {
             msg += "Link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
 
         } else {
-            msg += "\nEstoy en servicio. pero puede hacer su futura reserva y le confirmaremos tan pronto sea posible, aqui le dejamos el link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
+            msg += "\nEstoy ocupado en este momento. pero le confirmaremos tan pronto sea posible, aqui le dejamos el link para acceso rapido... https://chopelmont.github.io/orlandorides/\n";
         }
     } else {
         // MENSAJE EN INGLÉS
